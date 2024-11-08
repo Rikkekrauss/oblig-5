@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <title>Statistikk</title>
+</head>
+<body>
+    <h1>Statistikk: Andel barn i barnehage (1-2 år)</h1>
+
+    <!-- Skjema for å velge kommune -->
+    <form method="POST">
+        <label for="kommune">Velg en kommune:</label>
+        <select name="kommune" id="kommune">
+            {% for kommune in kommuner %}
+                <option value="{{ kommune }}">{{ kommune }}</option>
+            {% endfor %}
+        </select>
+        <button type="submit">Vis statistikk</button>
+    </form>
+
+    <!-- Vise grafen etter at kommune er valgt -->
+    {% if chart_html %}
+        <div>
+            {{ chart_html|safe }}
+        </div>
+    {% endif %}
+</body>
+</html>

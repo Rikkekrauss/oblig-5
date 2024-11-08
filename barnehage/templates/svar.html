@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Svar</title>
+</head>
+<body>
+    <h1>Søknad Resultat</h1>
+    <ul>
+        {% for key, value in session['information'].items() %}
+            <li><strong>{{ key }}:</strong> {{ value }}</li>
+        {% endfor %}
+    </ul>
+    <p>Resultat: {{ session['resultat'] }}</p>
+</body>
+</html>
+{% endblock %}

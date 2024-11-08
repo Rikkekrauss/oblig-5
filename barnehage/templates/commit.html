@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Commit Status</title>
+</head>
+<body>
+    <h1>Data lagret permanent i databasen</h1>
+
+    <h2>Foresatte</h2>
+    <table>
+        <tr>
+            <th>Foresatt ID</th>
+            <th>Navn</th>
+            <th>Adresse</th>
+            <th>Tlfnr</th>
+            <th>PNR</th>
+        </tr>
+        {% for f in foresatt %}
+        <tr>
+            <td>{{ f.foresatt_id }}</td>
+            <td>{{ f.foresatt_navn }}</td>
+            <td>{{ f.foresatt_adresse }}</td>
+            <td>{{ f.foresatt_tlfnr }}</td>
+            <td>{{ f.foresatt_pnr }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h2>Barn</h2>
+    <table>
+        <tr>
+            <th>Barn ID</th>
+            <th>Personnummer</th>
+        </tr>
+        {% for b in barn %}
+        <tr>
+            <td>{{ b.barn_id }}</td>
+            <td>{{ b.barn_pnr }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h2>Søknader</h2>
+    <table>
+        <tr>
+            <th>Søknad ID</th>
+            <th>Foresatt 1</th>
+            <th>Foresatt 2</th>
+            <th>Barn</th>
+            <th>Status</th>
+        </tr>
+        {% for s in soknad %}
+        <tr>
+            <td>{{ s.sok_id }}</td>
+            <td>{{ s.foresatt_1 }}</td>
+            <td>{{ s.foresatt_2 }}</td>
+            <td>{{ s.barn_1 }}</td>
+            <td>{{ s.status }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h2>Barnehager</h2>
+    <table>
+        <tr>
+            <th>Barnehage ID</th>
+            <th>Navn</th>
+            <th>Antall Plasser</th>
+            <th>Ledige Plasser</th>
+        </tr>
+        {% for bh in barnehage %}
+        <tr>
+            <td>{{ bh.barnehage_id }}</td>
+            <td>{{ bh.barnehage_navn }}</td>
+            <td>{{ bh.barnehage_antall_plasser }}</td>
+            <td>{{ bh.barnehage_ledige_plasser }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <title>Søknader</title>
+</head>
+<body>
+    <h1>Søknader</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Søknad ID</th>
+                <th>Forelder 1</th>
+                <th>Forelder 2</th>
+                <th>Barnets Personnummer</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for soknad in soknader %}
+            <tr>
+                <td>{{ soknad.soknad_id }}</td>
+                <td>{{ soknad.foresatt_1_navn }}</td>
+                <td>{{ soknad.foresatt_2_navn }}</td>
+                <td>{{ soknad.barn_pnr }}</td>
+                <td>{{ soknad.status }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
